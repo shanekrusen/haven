@@ -26,13 +26,14 @@ default: &default
 
 development:
   <<: *default
-  database: haven_development
+  database: philanthrobook_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: haven
+
+  #username: philanthrobook
 
   # The password associated with the postgres role (username).
   #password:
@@ -60,7 +61,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: haven_test
+  database: philanthrobook_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -83,4 +84,6 @@ test:
 #
 production:
   <<: *default
-  database: haven_production
+  database: philanthrobook_production
+  username: philanthrobook
+  password: <%= ENV['PHILANTHROBOOK_DATABASE_PASSWORD'] %>
