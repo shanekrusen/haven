@@ -6,12 +6,6 @@ Rails.application.routes.draw do
 
   post 'sessions/login_attempt'
 
-  get 'sessions/home'
-
-  get 'sessions/profile'
-
-  get 'sessions/setting'
-
   get 'users/new'
 
   root :to => 'statics#home'
