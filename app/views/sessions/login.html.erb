@@ -1,0 +1,26 @@
+<div style="width: 100vw; height: 50px;"></div>
+
+<div class="form-wrapper">
+    <h2>Sign In</h2>
+    <br />
+    <%= form_tag(:action => 'login_attempt') do %>
+        <div class="field>">
+            <p>Email</p>
+            <%= text_field_tag(:email) %>
+        </div>
+        <br />
+        <div class="field">
+            <p>Password</p>
+            <%= password_field_tag(:login_password) %>
+        </div>
+        <div class="field">
+            <%= label_tag :remember_me %>
+            <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+        </div>
+        <br />
+        <%= submit_tag("Sign In") %>
+        <br />
+        <br />
+        <%= link_to "Sign Up", new_user_path %>
+    <% end %>
+</div>
