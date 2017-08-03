@@ -2,7 +2,7 @@ class User < ApplicationRecord
     attr_accessor :password
     validates_presence_of :first_name, :last_name, :email, :password
     validates :password, :confirmation => :true
-    validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+    validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
     before_save :encrypt_password
     before_create { generate_token(:auth_token) }
     after_save :clear_password
