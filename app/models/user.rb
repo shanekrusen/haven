@@ -1,9 +1,9 @@
 class User < ApplicationRecord
-    attr_accessor :password
+    attr_accessor :password, :zip_code
     validates_presence_of :first_name, :last_name, :email, :password
     validates :password, :confirmation => :true
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-    before_save :encrypt_password
+    before_save :encrypt_password, :find_lat_long
     before_create { generate_token(:auth_token) }
     after_save :clear_password
 
@@ -33,7 +33,21 @@ class User < ApplicationRecord
 
     def generate_token(column)
         begin
-            self[column] = SecureRandom.urlsafe_base64            
+            self[column] = SecureRandom.urlsafe_base64
         end while User.exists?(column => self[column])
+    end
+
+    def find_lat_long
+        @zip_codes = File.open("#{Rails.root}/app/assets/text/USZipCodesfrom2013GovernmentData.txt")
+        @hash = {}
+
+        @zip_codes.readlines.each do |line|
+          @new_line = line.split(",")
+          @hash[@new_line[0]] = (@new_line[1] + "," + @new_line[2]).strip
+        end
+        puts @hash
+        puts @hash["08021"]
+
+        self.lat_long = @hash[zip_code.to_s]
     end
 end
