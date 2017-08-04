@@ -45,7 +45,7 @@ class User < ApplicationRecord
           @new_line = line.split(",")
           @hash[@new_line[0]] = (@new_line[1] + "," + @new_line[2]).strip
         end
-        puts @hash
+        puts zip_code
         puts @hash["08021"]
 
         self.lat_long = @hash[zip_code.to_s]
