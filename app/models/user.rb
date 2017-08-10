@@ -42,12 +42,13 @@ class User < ApplicationRecord
         @hash = {}
 
         @zip_codes.readlines.each do |line|
-          @new_line = line.split(",")
-          @hash[@new_line[0]] = (@new_line[1] + "," + @new_line[2]).strip
+          @new_line = line.strip.split(",")
+          @hash[@new_line[0]] = [@new_line[1], @new_line[2]]
         end
         puts zip_code
         puts @hash["08021"]
 
-        self.lat_long = @hash[zip_code.to_s]
+        self.lat = @hash[zip_code.to_s][0].to_f
+        self.long = @hash[zip_code.to_s][1].to_f
     end
 end
