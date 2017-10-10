@@ -35,5 +35,6 @@ class ApplicationHelperTest < ActionView::TestCase
 
     test "nearby users" do
         assert find_nearby_users(@user1).include?(@user2)
+        refute find_nearby_users(@user1).include?(@user3)
     end
 end
