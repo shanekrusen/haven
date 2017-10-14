@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+- 2.3.1
+services: "-postgresql"
+script:
+- bundle exec rake db:test:prepare
+- bundle exec rake test

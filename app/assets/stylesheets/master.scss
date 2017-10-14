@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+body {
+    color: white;
+    background-color: #FA8072;
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.header {
+    height: 50px;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    background-color: #FA8072;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-family: 'Pacifico', cursive;
+    margin-left: 5px;
+    margin-top: 15px;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.divider {
+    width: 100vw; 
+    height: 50px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: calc(100vh - 50px);
+    width: 100vw;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+input {
+    border-radius: 3px;
+}
+
+input[type=submit] {
+    border: 0px;
+    padding: 7px;
+    background-color: #CD695E;
+    color: white;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    color: #CD695E;
+    background-color: white;
+}
+
+.close {
+    z-index: 9999;
+}
