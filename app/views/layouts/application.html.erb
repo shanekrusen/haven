@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <div class="header">
+      <h1>Haven</h1>
+      <% if @current_user %>
+        <%= link_to "Log Out", log_out_path %>
+      <% end %>
+    </div>
+
     <% if notice.present? %>
       <p class="notice close"><%= notice %></p>
     <% end %>

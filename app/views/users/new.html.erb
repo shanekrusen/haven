@@ -1,46 +1,51 @@
-<div style="width: 100vw; height: 50px;"></div>
+<div class="divider"></div>
 
-<div class="form-wrapper">
-    <h2>Sign Up</h2>
-    <br />
-    <%= form_for(:user, :url => { :controller => 'users', :action => 'create' } ) do |f| %>
-        <div class="field">
-            <%= f.label :first_name %><br />
-            <%= f.text_field :first_name %>
-        </div>
+<div class="form-container">
+    <div class="form-wrapper">
+        <h2>Sign Up</h2>
         <br />
-        <div class="field">
-            <%= f.label :last_name %><br />
-            <%= f.text_field :last_name %>
-        </div>
-        <br />
-        <div class="field">
-            <%= f.label :email %><br />
-            <%= f.text_field :email %>
-        </div>
-        <br />
-        <div class="field">
-            <p>Zip Code</p><br />
-            <%= f.number_field :zip_code, :maxlength => 5 %>
-        </div>
-        <br />
-        <div class="field">
-            <%= f.label :password %><br />
-            <%= f.password_field :password %>
-        </div>
-        <br />
-        <div class="field">
-            <%= f.label :confirm_password %><br />
-            <%= f.password_field :confirm_password %>
-        </div>
-        <br />
-        <%= f.submit :Signup %>
-    <% end %>
-    <% if @user.errors.any? %>
-        <ul class="Signup_Errors">
-        <% for message_error in @user.errors.full_messages %>
-            <li>* <%= message_error %></li>
+        <%= form_for(:user, :url => { :controller => 'users', :action => 'create' } ) do |f| %>
+            <div class="field">
+                <%= f.label :first_name %><br />
+                <%= f.text_field :first_name %>
+            </div>
+            <br />
+
+            <div class="field">
+                <%= f.label :last_name %><br />
+                <%= f.text_field :last_name %>
+            </div>
+            <br />
+            <div class="field">
+                <%= f.label :email %><br />
+                <%= f.text_field :email %>
+            </div>
+            <br />
+            <div class="field">
+                <label>Zip Code</label><br />
+                <%= f.number_field :zip_code, :maxlength => 5 %>
+            </div>
+            <br />
+            <div class="field">
+                <%= f.label :password %><br />
+                <%= f.password_field :password %>
+            </div>
+            <br />
+            <div class="field">
+                <%= f.label :confirm_password %><br />
+                <%= f.password_field :confirm_password %>
+            </div>
+            <br />
+            <div class="button-wrapper">
+                <%= f.submit :SignUp %>
+            </div>
         <% end %>
-        </ul>
-    <% end %>
+        <% if @user.errors.any? %>
+            <ul class="Signup_Errors">
+            <% for message_error in @user.errors.full_messages %>
+                <li>* <%= message_error %></li>
+            <% end %>
+            </ul>
+        <% end %>
+    </div>
 </div>
