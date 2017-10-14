@@ -1,6 +1,6 @@
 language: ruby
 rvm:
- - 2.3.1
+  - 2.3.1
 
  env:
   - DB=pgsql
@@ -15,4 +15,4 @@ script:
 
 before_script:
   - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database courseselect_test;' -U postgres
+  - psql -c 'create database philanthrobook_test;' -U postgres
