@@ -1,4 +1,12 @@
 FactoryGirl.define do
+    factory :user do
+        first_name "Jorge"
+        last_name "Tubungus"
+        email "user@website.com"
+        password "password"
+        zip_code "08004"
+    end
+
     factory :user1, class: User do
         first_name "John"
         last_name "Butts"
@@ -14,14 +22,6 @@ FactoryGirl.define do
         email "example2@website.com"
         zip_code "08021"
     end 
-
-    factory :user do
-        first_name "Jorge"
-        last_name "Tubungus"
-        email "user@website.com"
-        password "password"
-        zip_code "08004"
-    end
 
     factory :user3, class: User do
         first_name "Autumn"
