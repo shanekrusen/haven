@@ -1,19 +1,11 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  FactoryGirl.define do
-    factory :user do
-      first_name "Jorge"
-      last_name "Tubungus"
-      email "user@website.com"
-      password "password"
-      zip_code "08004"
-    end
-  end
+  
 
   def setup
     @built = build(:user)
-    @created = create(:user)
+    @created = create(:user1)
   end
 
   test 'valid user' do
