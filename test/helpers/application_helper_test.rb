@@ -2,9 +2,9 @@ require 'test_helper'
 
 class ApplicationHelperTest < ActionView::TestCase
     def setup
-        @user1 = create(:user1)
-        @user2 = create(:user2)
-        @user3 = create(:user3)
+        @user1 = create(:user, :zip_code => "08004")
+        @user2 = create(:user, :zip_code => "08021")
+        @user3 = create(:user, :zip_code => "90210")
     end
 
     test "nearby users" do
