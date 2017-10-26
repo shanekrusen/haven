@@ -32,6 +32,7 @@ body {
     justify-content: space-between;
     align-items: center;
     align-content: center;
+    margin: 0px;
 }
 
 .header h1 {
@@ -48,6 +49,37 @@ body {
 .divider {
     width: 100vw; 
     height: 50px;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.messages-container {
+    width: 25vw;
+    height: calc(100vh - 50px);
+    margin: 0px;
+    background-color: #FA8072;
+}
+
+.user-search-container {
+    width: 75vw;
+    height: calc(100vh - 50px);
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+
+.user-box {
+    background-color: #FA8072;
+    width: 75%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-left: 5px;
 }
 
 .form-container {
@@ -106,6 +138,7 @@ input[type=submit]:hover {
     align-content: center;
     justify-content: center;
     align-items: center;
+    margin: 0px;
 }
 
 .alert {
@@ -115,6 +148,7 @@ input[type=submit]:hover {
     width: 100vw;
     height: 50px;
     text-align: center;
+    margin: 0px;
 }
 
 .home-container {
