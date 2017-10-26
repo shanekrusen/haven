@@ -9,6 +9,18 @@ body {
     font-family: 'Josefin Sans', sans-serif;
 }
 
+::selection {
+  background: #CD695E;
+  color: white;
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: #CD695E;
+  color: white;
+  text-shadow: none;
+}
+
 .header {
     height: 50px;
     position: absolute;
