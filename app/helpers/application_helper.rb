@@ -12,6 +12,8 @@ module ApplicationHelper
 
       @nearby_users = @nearby_user_long & @nearby_user_lat
 
+      @nearby_users.delete(user)
+
       return @nearby_users
     end
 end
