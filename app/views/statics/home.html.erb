@@ -1,5 +1,16 @@
 <div class="divider"></div>
 
 <div class="home-container">
+    <div class="messages-container">
+    
+    </div>
 
+    <div class="user-search-container">
+        <% @nearby = find_nearby_users(@current_user) %>
+        <% @nearby.each_with_index do |user, index| %>
+            <div class="user-box">
+                <h1><%= (index + 1).to_s + ". " + user.first_name + " " + user.last_name %></h1>
+            </div>
+        <% end %>
+    </div>
 </div>
