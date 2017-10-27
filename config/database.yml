@@ -33,7 +33,7 @@ development:
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
 
-  #username: philanthrobook
+  #username: Haven
 
   # The password associated with the postgres role (username).
   #password:
@@ -85,5 +85,5 @@ test:
 production:
   <<: *default
   database: philanthrobook_production
-  username: philanthrobook
+  username: Haven
   password: <%= ENV['PHILANTHROBOOK_DATABASE_PASSWORD'] %>
