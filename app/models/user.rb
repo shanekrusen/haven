@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     attr_accessor :password, :zip_code
-    validates_presence_of :first_name, :last_name, :email, :password
+    validates_presence_of :first_name, :last_name, :email, :password, :volunteer
     validates :password, :confirmation => :true
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
     validates :email, uniqueness: true
