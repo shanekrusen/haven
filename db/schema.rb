@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< 114fecff4887b143f4ff258adaa05fca6fa1d185
 ActiveRecord::Schema.define(version: 20171107005506) do
+=======
+ActiveRecord::Schema.define(version: 20171031234533) do
+>>>>>>> Changed user object to have two different types, volunteer or in need
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +31,10 @@ ActiveRecord::Schema.define(version: 20171107005506) do
     t.float    "lat"
     t.float    "long"
     t.boolean  "volunteer"
+<<<<<<< 114fecff4887b143f4ff258adaa05fca6fa1d185
     t.string   "services"
+=======
+>>>>>>> Changed user object to have two different types, volunteer or in need
     t.index ["lat", "long"], name: "index_users_on_lat_and_long", using: :btree
     t.index ["lat"], name: "index_users_on_lat", using: :btree
     t.index ["long"], name: "index_users_on_long", using: :btree
