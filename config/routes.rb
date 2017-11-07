@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
+  get 'users/services'
+
+  put 'users/update_services'
+
   root :to => 'statics#home'
 
   resources :users

@@ -6,7 +6,9 @@ class User < ApplicationRecord
     validates :email, uniqueness: true
     before_save :encrypt_password, :find_lat_long
     before_create { generate_token(:auth_token) }
+    before_create :initialize_services
     after_save :clear_password
+    serialize :services, Array
 
     def encrypt_password
         if password.present?
@@ -49,5 +51,9 @@ class User < ApplicationRecord
 
         self.lat = @hash[zip_code.to_s][0].to_f
         self.long = @hash[zip_code.to_s][1].to_f
+    end
+
+    def initialize_services
+        self.services = []
     end
 end

@@ -21,4 +21,14 @@ class ApplicationController < ActionController::Base
       return true
     end
   end
+
+  def check_services
+    if @curent_user.services.empty?
+      redirect_to users_services_path
+      return false
+    else
+      return true
+    end
+  end
+
 end
