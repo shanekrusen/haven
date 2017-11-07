@@ -1,0 +1,9 @@
+<div class="form-container">
+    <div class="form-wrapper">
+        <h2>Choose Your Services</h2>
+        <br />
+        <%= form_tag('/users/update_services', method: :put) do %>
+            check_box_tag :housing
+        <% end %>
+    </div>
+</div>

@@ -27,6 +27,14 @@ class UsersController < ApplicationController
 
   end
 
+  def services
+
+  end
+
+  def update_services
+
+  end
+
   private
 
   def user_params
