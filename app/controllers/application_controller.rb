@@ -23,12 +23,6 @@ class ApplicationController < ActionController::Base
   end
 
   def check_services
-    if @curent_user.services.empty?
-      redirect_to users_services_path
-      return false
-    else
-      return true
-    end
   end
 
 end
