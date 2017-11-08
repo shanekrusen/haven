@@ -10,11 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< 8392e5c193337d3290bd132549d5d38a940df215
 <<<<<<< 114fecff4887b143f4ff258adaa05fca6fa1d185
 ActiveRecord::Schema.define(version: 20171107005506) do
 =======
 ActiveRecord::Schema.define(version: 20171031234533) do
 >>>>>>> Changed user object to have two different types, volunteer or in need
+=======
+ActiveRecord::Schema.define(version: 20171107005506) do
+>>>>>>> Pushing earlier changes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +34,7 @@ ActiveRecord::Schema.define(version: 20171031234533) do
     t.string   "auth_token"
     t.float    "lat"
     t.float    "long"
+    t.string   "services"
     t.boolean  "volunteer"
 <<<<<<< 114fecff4887b143f4ff258adaa05fca6fa1d185
     t.string   "services"
