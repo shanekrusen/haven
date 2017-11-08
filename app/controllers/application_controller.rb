@@ -23,6 +23,15 @@ class ApplicationController < ActionController::Base
   end
 
   def check_services
+<<<<<<< b3ceb635eec1b4d9ec1fd439c653dc1f087378e8
+=======
+    if @curent_user.services.empty?
+      redirect_to users_services_path
+      return false
+    else
+      return true
+    end
+>>>>>>> RecordNotFoundError
   end
 
 end
