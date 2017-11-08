@@ -4,9 +4,9 @@ class User < ApplicationRecord
     validates :password, :confirmation => :true
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
     validates :email, uniqueness: true
-    before_save :encrypt_password
+    before_save :encrypt_password, :find_lat_long
     before_create { generate_token(:auth_token) }
-    before_create :initialize_services, :find_lat_long
+    before_create :initialize_services
     after_save :clear_password
     serialize :services, Array
 
@@ -41,16 +41,18 @@ class User < ApplicationRecord
     end
 
     def find_lat_long
-        @zip_codes = File.open("#{Rails.root}/app/assets/text/USZipCodesfrom2013GovernmentData.txt")
-        @hash = {}
+        if zip_code.present?
+            @zip_codes = File.open("#{Rails.root}/app/assets/text/USZipCodesfrom2013GovernmentData.txt")
+            @hash = {}
 
-        @zip_codes.readlines.each do |line|
-          @new_line = line.strip.split(",")
-          @hash[@new_line[0]] = [@new_line[1], @new_line[2]]
+            @zip_codes.readlines.each do |line|
+            @new_line = line.strip.split(",")
+            @hash[@new_line[0]] = [@new_line[1], @new_line[2]]
+            end
+
+            self.lat = @hash[zip_code.to_s][0].to_f
+            self.long = @hash[zip_code.to_s][1].to_f
         end
-
-        self.lat = @hash[zip_code.to_s][0].to_f
-        self.long = @hash[zip_code.to_s][1].to_f
     end
 
     def initialize_services
