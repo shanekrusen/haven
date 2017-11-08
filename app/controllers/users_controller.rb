@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :save_login_state, only: [:new, :create]
-
+  before_action :authenticate_user, only: [:services, :update_services]
+  
   def new
     @user = User.new
   end
@@ -25,6 +26,24 @@ class UsersController < ApplicationController
 
   def destroy
 
+  end
+
+  def services
+
+  end
+
+  def update_services
+    @services = []
+
+    params.each do |name, value|
+      if value == "1"
+        @services << name
+      end
+    end
+
+    @current_user.update_attribute(:services, @services)
+
+    redirect_to root_path
   end
 
   private
