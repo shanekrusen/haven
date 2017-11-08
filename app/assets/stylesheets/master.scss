@@ -158,3 +158,12 @@ input[type=submit]:hover {
     width: 100vw;
     background-color: white;
 }
+
+.check-box-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

@@ -3,7 +3,22 @@
         <h2>Choose Your Services</h2>
         <br />
         <%= form_tag('/users/update_services', method: :put) do %>
-            <%= check_box_tag 'housing' %> Housing
+            <div class="check-box-wrapper">
+                <div class="flex-row">
+                    <%= check_box_tag 'Housing' %> Housing 
+                    <%= check_box_tag 'Food' %> Food 
+                </div>
+                <br />
+                <div class="flex-row">
+                    <%= check_box_tag 'Clothing' %> Clothing 
+                    <%= check_box_tag 'Toiletries' %> Toiletries 
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="button-wrapper">
+                <%= submit_tag 'Save' %>
+            </div>
         <% end %>
     </div>
 </div>

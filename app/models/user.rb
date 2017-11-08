@@ -4,9 +4,9 @@ class User < ApplicationRecord
     validates :password, :confirmation => :true
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
     validates :email, uniqueness: true
-    before_save :encrypt_password, :find_lat_long
+    before_save :encrypt_password
     before_create { generate_token(:auth_token) }
-    before_create :initialize_services
+    before_create :initialize_services, :find_lat_long
     after_save :clear_password
     serialize :services, Array
 
