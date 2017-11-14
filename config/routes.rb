@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'users/services'
 
+  get 'statics/terms'
+
   put 'users/update_services'
 
   root :to => 'statics#home'
