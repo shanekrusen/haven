@@ -45,6 +45,8 @@
                 <%= f.submit "Sign Up" %>
             </div>
         <% end %>
+        <p>By signing up, you are agreeing to our</p>
+        <%= link_to "Terms of Use and Privacy Policy", statics_terms_path %>
         <% if @user.errors.any? %>
             <ul class="Signup_Errors">
             <% for message_error in @user.errors.full_messages %>

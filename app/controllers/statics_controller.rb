@@ -6,4 +6,8 @@ class StaticsController < ApplicationController
             redirect_to users_services_path
         end
     end
+
+    def terms
+
+    end
 end
