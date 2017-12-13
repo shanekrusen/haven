@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_many :chat_rooms, dependent: :destroy
+    has_many :messages, dependent: :destroy
     attr_accessor :password, :zip_code
     validates_presence_of :first_name, :last_name, :email, :password, :volunteer
     validates :password, :confirmation => :true
