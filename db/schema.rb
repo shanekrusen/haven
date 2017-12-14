@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20171212000645) do
     t.string   "auth_token"
     t.float    "lat"
     t.float    "long"
-    t.string   "services"
     t.string   "volunteer"
+    t.string   "services"
     t.index ["lat", "long"], name: "index_users_on_lat_and_long", using: :btree
     t.index ["lat"], name: "index_users_on_lat", using: :btree
     t.index ["long"], name: "index_users_on_long", using: :btree
