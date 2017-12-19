@@ -59,4 +59,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'bcrypt'
-gem "rb-fsevent"
+gem 'rb-fsevent'
+gem 'redis', '~> 3.2'
