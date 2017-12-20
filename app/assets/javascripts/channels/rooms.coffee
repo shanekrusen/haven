@@ -1,6 +1,8 @@
 jQuery(document).on 'turbolinks:load', -> 
   console.log('coffeescript is running')
   messages = $('#messages')
+  user_id = messages.data('user-id')
+
   if $('#messages').length > 0
     console.log('Running first if loop')
     messages_to_bottom = -> messages.scrollTop(messages.prop("scrollHeight"))
@@ -18,7 +20,21 @@ jQuery(document).on 'turbolinks:load', ->
         # Called when the subscription has been terminated by the server
 
       received: (data) ->
-        messages.append data['message']
+        console.log(data.message.user_id)
+        if user_id == data.message.user_id
+          console.log('same user')
+          messages.append "<div class='self-message'>
+              <small class='self-message-time'>You at " + data.message.created_at + "</small>
+              <br />
+              <p class='self-message-unit'>" + data.message.body + "</p>
+          </div>"
+        else
+          console.log('else case')
+          messages.append "<div class='other-message'>
+              <small class='other-message-time'>Them at " + data.message.created_at + "</small>
+              <br />
+              <p class='other-message-unit'>" + data.message.body + "</p>
+          </div>"
         messages_to_bottom()
         console.log('receiving')
 

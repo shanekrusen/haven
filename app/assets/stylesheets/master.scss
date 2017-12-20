@@ -167,3 +167,36 @@ input[type=submit]:hover {
     align-items: center;
     flex-wrap: wrap;
 }
+
+.chat-link {
+    width: 100%;
+    text-align: center;
+}
+
+.chat-link:hover {
+    background-color: #CD695E;
+}
+
+.seperator-box {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 85%;
+    border-bottom: 1px solid #CD695E;
+    display: inline-block;
+}
+
+.seperator-box a {
+    color: white;
+    text-decoration: none;
+    width: 75%;
+    text-align: center;
+}
+
+.user-search-container h3 {
+    color: #FA8072;
+}
+
+.user-box h2 a {
+    color: #FA8072;
+}

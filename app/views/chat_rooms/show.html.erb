@@ -1,17 +1,20 @@
 <h1><%= @chat_room.title %></h1>
 
-<div id="messages" data-chat-room-id = "<%= @chat_room.id %>%">
+<div id="messages" data-chat-room-id = "<%= @chat_room.id %>%" data-user-id="<%= @current_user.id %>">
     <%= render @chat_room.messages %>
 </div>
 
-<%= form_for @message, url: '#' do |f| %>
-    <%= hidden_field_tag 'chat_room_id', @chat_room.id %>
-    <div class="field">
-        <%= f.label :body %>
-        <%= f.text_area :body %>
-    </div>
+<div class="text-footer">
+    <%= form_for @message, url: '#' do |f| %>
+        <%= hidden_field_tag 'chat_room_id', @chat_room.id %>
+        <%= hidden_field_tag 'user_id', @current_user.id %>
+        
+        <div class="field mess-input">
+            <%= f.text_field :body %>
+        </div>
 
-    <div class="button-wrapper">
-        <%= f.submit "Post" %>
-    </div>
-<% end %>
+        <div class="button-wrapper right-button">
+            <%= f.submit "➤" %>
+        </div>
+    <% end %>
+</div>

@@ -1,4 +1,87 @@
 #messages {
-    max-height: 450px;
+    height: calc(100% - 100px);
     overflow-y: auto;
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.self-message {
+    width: 100%;
+    text-align: right;
+}
+
+.self-message-time {
+    text-align: right;
+}
+
+.self-message-unit {
+    text-align: right;
+    background-color: #CD695E;
+    width: auto;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.other-message {
+    width: 100%;
+    text-align: left;
+}
+
+.other-message-time {
+    text-align: left;
+}
+
+.other-message-unit {
+    background-color: white;
+    color: #FA8072;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.text-footer {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.right-button {
+    display: inline-block;
+    width: auto;
+    background-color: transparent;
+}
+
+.right-button input[type=submit] {
+    background-color: transparent;
+    color: #CD695E;
+    font-size: 35px;
+}
+
+.mess-input input[type=text] {
+    width: 75vw;
+    border: 0px;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 0px;
+    caret-color: #CD695E;
+}
+
+.mess-input input[type=text]:focus {
+    outline: none;
+}
+
+.mess-input {
+    overflow: hidden;
+    display: inline-block;
+    width: auto;
 }

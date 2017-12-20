@@ -1,2 +1,15 @@
-<h1><%= message.user.first_name %> at <%= message.timestamp %></h1>
-<p><%= message.body %></p>
+<% if message.user == @current_user %>
+    <div class="self-message">
+        <small class="self-message-time">You at <%= message.created_at %></small>
+        <br />
+        <p class="self-message-unit"><%= message.body %></p>
+        <br />
+    </div>
+<% else %>
+    <div class="other-message">
+        <small class="other-message-time">Them at <%= message.created_at %></small>
+        <br />
+        <p class="other-message-unit"><%= message.body %></p>
+        <br />
+    </div>
+<% end %>

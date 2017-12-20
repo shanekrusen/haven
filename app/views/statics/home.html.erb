@@ -2,21 +2,31 @@
 
 <div class="home-container">
     <div class="messages-container">
-    
+        <% @current_user.chat_rooms.each do |room| %>
+            <div class="chat-link">
+                <div class="seperator-box">
+                    <%= link_to "#{room.title}", chat_room_path(room) %>
+                </div>
+            </div>
+        <% end %>
+
+        <% ChatRoom.where({ subscriber_id: @current_user.id }).each do |room| %>
+            <div class="chat-link">
+                 <div class="seperator-box">
+                    <%= link_to "#{room.title}", chat_room_path(room) %>
+                </div>
+            </div>
+        <% end %>
     </div>
 
     <div class="user-search-container">
         <% @nearby = find_nearby_users(@current_user) %>
         <% @nearby.each_with_index do |user, index| %>
-            <div class="user-box">
-                <h1><%= link_to "#{(index + 1).to_s + '. ' + user.first_name + ' ' + user.last_name}", chat_rooms_path(:chat_room => {:title => "#{@current_user.first_name}, #{user.first_name}", :subscriber_id => user.id}), method: :post %></h1>
-            </div>
+            <% unless ChatRoom.where({ user_id: @current_user.id }).any? || ChatRoom.where({ subscriber_id: @current_user.id }).any? %>
+                <div class="user-box">
+                    <h2><%= link_to "#{(index + 1).to_s + '. ' + user.first_name + ' ' + user.last_name}", chat_rooms_path(:chat_room => {:title => "#{@current_user.first_name}, #{user.first_name}", :subscriber_id => user.id}), method: :post %></h2>
+                </div>
+            <% end %>
         <% end %>
-    </div>
-        <% @current_user.chat_rooms.each do |room| %>
-            <%= link_to "#{room.title}", chat_room_path(room) %>
-        <% end %>
-    <div>
-        
     </div>
 </div>
