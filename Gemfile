@@ -61,3 +61,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt'
 gem 'rb-fsevent'
 gem 'redis', '~> 3.2'
+gem 'nokogiri', '~> 1.8.1'

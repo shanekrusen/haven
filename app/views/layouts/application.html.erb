@@ -6,11 +6,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="HandheldFriendly" content="true" />
   </head>
 
   <body>
     <div class="header">
-      <h1>Haven</h1>
+      <h1><%= link_to "Haven", root_path %></h1>
       <% if @current_user %>
         <%= link_to "Log Out", log_out_path %>
       <% end %>
