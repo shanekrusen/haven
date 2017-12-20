@@ -22,6 +22,10 @@ class ChatRoomsController < ApplicationController
 
     def show
         @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
+        if @chat_room.user != @current_user && @chat_room.subscriber != @current_user
+            flash[:notice] = 'Not Allowed'
+            redirect_to root_path
+        end
         @message = Message.new
     end
 
