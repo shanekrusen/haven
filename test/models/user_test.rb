@@ -4,8 +4,8 @@ class UserTest < ActiveSupport::TestCase
   
 
   def setup
-    @built = build(:user)
-    @created = create(:user)
+    @built = build(:user, :volunteer => "volunteer")
+    @created = create(:user, :volunteer => "volunteer")
   end
 
   test 'valid user' do
