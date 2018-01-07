@@ -11,8 +11,11 @@ $(document).on('turbolinks:load', function() {
 
     var modal = document.getElementById('myModal');
 
-    var expiration_date = new Date().setFullYear(expiration_date.getFullYear() + 1);
-    var cookie_string = "visitedHaven=true; expires=" + expiration_date.toUTCString();
+    var expiration_date = new Date();
+    var cookie_string = '';
+
+    expiration_date.setFullYear(expiration_date.getFullYear() + 1);
+    cookie_string = "visitedHaven=true; expires=" + expiration_date.toUTCString();
     
     $(".modal-close").click(function() {
         $("#myModal").toggle();
