@@ -8,4 +8,22 @@ $(document).on('turbolinks:load', function() {
             "<h3>No New Users Nearby!</h3>"
         )
     }
+
+    var modal = document.getElementById('myModal');
+
+    var expiration_date = new Date().setFullYear(expiration_date.getFullYear() + 1);
+    var cookie_string = "visitedHaven=true; expires=" + expiration_date.toUTCString();
+    
+    $(".modal-close").click(function() {
+        $("#myModal").toggle();
+        document.cookie = cookie_string;
+    })
+    
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.cookie = cookie_string;
+        }
+    }
 });
+

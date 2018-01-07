@@ -14,7 +14,7 @@ module ApplicationHelper
 
       @nearby_users.delete(user)
 
-      @nearby_users.select! { |user| user.volunteer != @current_user.volunteer && !(user.services & @current_user.services).empty?}
+      @nearby_users.select! { |x| x.volunteer != user.volunteer && !(x.services & user.services).empty?}
 
       return @nearby_users
     end
