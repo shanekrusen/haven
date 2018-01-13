@@ -3,7 +3,6 @@
 <div class="form-container">
     <div class="form-wrapper">
         <h2>Sign Up</h2>
-        <br />
         <%= form_for(:user, :url => { :controller => 'users', :action => 'create' } ) do |f| %>
             <div class="field">
                 <%= f.label :first_name %><br />
@@ -47,6 +46,7 @@
         <% end %>
         <p>By signing up, you are agreeing to our</p>
         <%= link_to "Terms of Use and Privacy Policy", statics_terms_path %>
+        <br />
         <% if @user.errors.any? %>
             <ul class="Signup_Errors">
             <% for message_error in @user.errors.full_messages %>

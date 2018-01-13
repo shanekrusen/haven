@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function() {
         $(this).slideToggle();
     });
 
-    if ($('.user-search-container').html().trim() === "") {
+    if (!$.trim($('.user-search-container').html()).length) {
         $('.user-search-container').append(
             "<h3>No New Users Nearby!</h3>"
         )

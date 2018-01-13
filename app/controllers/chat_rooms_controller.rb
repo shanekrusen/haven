@@ -10,7 +10,13 @@ class ChatRoomsController < ApplicationController
     end
 
     def create
-        @chat_room = @current_user.chat_rooms.build(chat_room_params)
+        unless ChatRoom.where({ user_id: @current_user.id, subscriber_id: params[:subscriber_id] }).any? || 
+               ChatRoom.where({ user_id: params[:subscriber_id], subscriber_id: @current_user.id }).any? 
+            @chat_room = @current_user.chat_rooms.build(chat_room_params)
+        else
+            flash[:notice] = 'Not Allowed'
+            redirect_to root_path
+        end
         if @chat_room.save 
             flash[:notice] = 'Chat room added!'
             redirect_to @chat_room
